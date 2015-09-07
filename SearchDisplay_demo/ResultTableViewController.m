@@ -16,22 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.tableFooterView = [[UIView alloc]init];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
-
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
@@ -45,8 +34,18 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"CELL" forIndexPath:indexPath];
     }
     cell.textLabel.text = self.resultsArray[indexPath.row];
+    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *title = self.resultsArray[indexPath.row];
+    NSString *num = [NSString stringWithFormat:@"第%ld行",indexPath.row + 1 ];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:num message:title delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
+    [alert show];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 @end

@@ -10,6 +10,7 @@
 
 @interface ResultTableViewController : UITableViewController
 
+// 搜索结果数据
 @property (nonatomic, strong) NSMutableArray *resultsArray;
 
 @end
