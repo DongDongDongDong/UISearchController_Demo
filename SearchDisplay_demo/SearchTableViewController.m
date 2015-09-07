@@ -22,7 +22,7 @@
     if (!_resultArray) {
         _resultArray = [NSMutableArray array];
         for (int i = 1; i < 11 ; i ++) {
-            NSString *str = [NSString stringWithFormat:@"wrd_search_Demo -- %d",i];
+            NSString *str = [NSString stringWithFormat:@"wrd_search_Demo1 -- %d",i];
             [self.resultArray addObject:str];
         }
     }
@@ -50,12 +50,14 @@
     UINavigationController *resultVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"result_nav"];
     self.searchContrlller = [[UISearchController alloc]initWithSearchResultsController:resultVC];
     self.searchContrlller.searchResultsUpdater = self;
+    
+//    self.searchContrlller.dimsBackgroundDuri3ngPresentation = NO;
+//    self.searchContrlller.hidesNavigationBarDuringPresentation = NO;
+
+    
     self.searchContrlller.searchBar.frame = CGRectMake(self.searchContrlller.searchBar.frame.origin.x,self.searchContrlller.searchBar.frame.origin.y,self.searchContrlller.searchBar.frame.size.width,44);
     self.tableView.tableHeaderView = self.searchContrlller.searchBar;
-    NSMutableArray *scopeButtonTitles = [NSMutableArray array];
-    for (NSString *str in self.resultArray) {
-        [scopeButtonTitles addObject:str];
-    }
+
     self.searchContrlller.searchBar.delegate = self;
 }
 
@@ -70,9 +72,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CELL" forIndexPath:indexPath];
     if (cell == nil) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"CELL" forIndexPath:indexPath];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL"];
     }
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = self.resultArray[indexPath.row];
@@ -99,9 +101,9 @@
     [resultVC.tableView reloadData];
 }
 
-
 #pragma mark - Private Method
 - (void)filterContentForSearchText:(NSString *)searchText{
+    NSLog(@"%@",searchText);
     NSUInteger searchOptions = NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch;
     [self.tempsArray removeAllObjects];
     for (int i = 0; i < self.resultArray.count; i++) {

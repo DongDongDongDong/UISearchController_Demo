@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mu1-L8-nJO">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CELL" id="mu1-L8-nJO">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mu1-L8-nJO" id="VO2-04-hrH">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="aCj-lp-Yzq">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RESULT_CELL" id="aCj-lp-Yzq">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aCj-lp-Yzq" id="VLB-Q5-d0N">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -58,10 +58,11 @@
             </objects>
             <point key="canvasLocation" x="1572" y="382"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="HwI-9W-Udq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Oaz-mm-hPW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="rMP-QW-nT5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0mb-m5-hmR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -76,10 +77,11 @@
             </objects>
             <point key="canvasLocation" x="932" y="-351"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="w1E-1a-dTS">
             <objects>
                 <navigationController storyboardIdentifier="result_nav" automaticallyAdjustsScrollViewInsets="NO" id="xwk-qE-Udl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="XRc-g5-MhQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Qn-3h-gl6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

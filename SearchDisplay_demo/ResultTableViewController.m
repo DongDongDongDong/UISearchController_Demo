@@ -29,9 +29,9 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL"];
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RESULT_CELL"];
     if (cell == nil) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"CELL" forIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"RESULT_CELL" forIndexPath:indexPath];
     }
     cell.textLabel.text = self.resultsArray[indexPath.row];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
@@ -47,5 +47,4 @@
     [alert show];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
 @end
